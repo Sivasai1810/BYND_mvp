@@ -2,7 +2,7 @@ import dotenv from 'dotenv'
 import jsonwebtoken from "jsonwebtoken"
 dotenv.config()
 const jsonpassword = process.env.JSONWEBPASSWORD
-export const verifyToken = async (req, res, next) => {
+const verifyToken = async (req, res, next) => {
   try {
     const RefreshToken = req.cookies.rf_token; 
     const AccessToken = req.cookies.ac_token;
@@ -53,3 +53,4 @@ export const verifyToken = async (req, res, next) => {
     res.status(500).json({ message: "Internal Server Error" });
   }
 };
+export default verifyToken

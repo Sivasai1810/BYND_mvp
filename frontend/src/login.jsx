@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import Googleauth from './googleauth/googleauth';
 const Login = () => {
  const [email,setEmail]=useState();
  const [password,setPassword]=useState();
@@ -31,6 +32,7 @@ console.log(res.data.message)
       <input type='password' placeholder='enter the password' onChange={(e)=>{setPassword(e.target.value)}}></input>
       <button onClick={handlesign}>sign</button>
       <button onClick={handlelogin}>Login</button>
+      <Googleauth />
     </div>
   )
 }
