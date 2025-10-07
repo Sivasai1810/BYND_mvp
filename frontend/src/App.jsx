@@ -12,23 +12,30 @@ import Arrow from "./assets/arrow.png"
 import Review from "./assets/qoutes.svg"
 import Profile from "./assets/Profiles.svg"
 import Correct from "./assets/corrects.svg"
-import Button from "./component/button.jsx"
 import Faaq from "./FAQ/faaq"
 import Footer from "./footer/footer.jsx"
 import Bynd from "./assets/byndlogo.svg"
 import './App.css'
 import { useState, useEffect } from 'react'
-
+import { useNavigate } from 'react-router-dom'
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-
+  const navigate=useNavigate()
+ const closeMenu = () => {
+    setIsMenuOpen(false)
+  }
+const navigateroute=()=>{
+navigate('/login')
+}
+const multiplecalls=()=>{
+    closeMenu()
+    navigateroute()
+  }
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
   }
 
-  const closeMenu = () => {
-    setIsMenuOpen(false)
-  }
+ 
 
   // Close menu when clicking outside or on a link
   useEffect(() => {
@@ -63,7 +70,7 @@ function App() {
         </div>
         
         <div className={`nav-actions ${isMenuOpen ? 'active' : ''}`}>
-          <a href='#login' className='nav-login' onClick={closeMenu}>Login</a>
+          <button className='nav-login' onClick={multiplecalls}>Login</button>
           <button className='nav-cta-button' onClick={closeMenu}>Start tracking for free</button>
         </div>
         

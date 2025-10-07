@@ -6,3 +6,4 @@ const supabasekey=process.env.SUPA_BASE_KEY;
 export const supabase_connect=createClient(supabaseurl,supabasekey);
 
 
+

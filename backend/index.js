@@ -7,6 +7,7 @@ import signup from './authentication/signup.js';
 import login from './authentication/login.js'
 // import test01 from './test-case/test01.js';
 import redirecturl from './RedirectUrls/redirecturl.js'
+import fetching from "./profilefetching/fetching.js"
 const app=express()
 app.use(express.json());
 app.use(cors({
@@ -18,6 +19,7 @@ app.use(cookieParser());
 app.use('/auth/signup',signup);
 app.use('/auth/login',login)
 app.use('/supabase/redirecturl',redirecturl)
+app.use('/fetch/profile',fetching)
 // app.use('/auth/test',test01)
 app.listen(port,()=>{
     console.log(`server is started ${port}`)
